@@ -52,34 +52,49 @@ export default function UserDashboard() {
   }, [token])
 
   return (
-    <div>
-      {allMatchingRegions.map((singleRegion, index) => {
-        return (
-          <div
-            key={index}
-            className="border-2"
-            onClick={() => {
-              router.push(`/user/eachRegion/${singleRegion.regionID}`)
-            }}
-          >
-            <p>Name:{singleRegion.name}</p>
-            <p>Area:{singleRegion.area.$numberDecimal}</p>
-            <p>Border Length:{singleRegion.borderLength.$numberDecimal}</p>
-            <p>
-              States:
-              {singleRegion.states.map((state, index1) => {
-                return <span key={index1}>{state}</span>
-              })}
-            </p>
-            <p>
-              Neighbor Country:
-              {singleRegion.neighborCountry.map((country, index2) => {
-                return <span key={index2}>{country},</span>
-              })}
-            </p>
+    <div className='lg:w-[712px] md:w-[412
+      px] sm:w-[256px] '>
+      <p className='monitor-header'>Assigned Places</p>
+          <div className='flex flex-row gap-x-4 h-auto user ' style={{borderRadius:"8px"}}>
+          {
+              allMatchingRegions.map((singleRegion,index)=>{
+                  return(
+                    <div
+                    key={index}
+                    className='flex flex-col h-auto' style={{overflow:'hidden',borderRadius:"4px",cursor:"pointer",boxShadow:"0 0 2px 1px black inset",padding:"4px 8px 4px 8px",fontSize:"0.8em"}}
+                    onClick={() => {
+                      router.push(`/user/eachRegion/${singleRegion.regionID}`)
+                    }}
+                  >
+                    <p>{singleRegion.name}</p>
+                    <p>{singleRegion.area.$numberDecimal}</p>
+                    <p>{singleRegion.borderLength.$numberDecimal}</p>
+                    <p>
+                      {singleRegion.states.map((state, index1) => {
+                        return (
+                        <span key={index1}>
+                          {index1 === 0 && "| " }
+                          {" "+state} | 
+                        </span>
+                        )
+                      })}
+                    </p>
+                    <p>
+                      {singleRegion.neighborCountry.map((country, index2) => {
+                        return (
+                        <span key={index2}>
+                          {index2 === 0 && "| " }
+                          {" "+country} |
+                        </span>
+                        )
+                      })}
+                    </p>
+                  </div>
+                  )
+                  })
+                }
+
           </div>
-        )
-      })}
-    </div>
+      </div>
   )
 }
