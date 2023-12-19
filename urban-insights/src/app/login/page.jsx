@@ -120,11 +120,11 @@ export default function LoginForm() {
         console.log('Otp successful')
         // let userDashBoardURL = 'user'
         // console.log(secondFormData)
-        let userDashBoardURL = `user/allocated_regions`
+        let userDashBoardURL = `/user/allocated_regions`
         console.log(secondFormData)
         router.push(userDashBoardURL)
 
-        router.push(userDashBoardURL)
+        // router.push(userDashBoardURL)
       }
     } catch (error) {
       console.log('Error in otp verification')

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Slide from './Slide'
+// import Slide from './Slide'
 
 export default function Place() {
   const data = {
@@ -19,7 +19,7 @@ export default function Place() {
 
   return (
     <div className="place flex flex-col mx-auto w-[346px] h-[386px]">
-      <Slide data={arr} />
+      {/* <Slide data={arr} /> */}
     </div>
   )
 }

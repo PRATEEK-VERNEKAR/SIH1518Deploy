@@ -33,7 +33,6 @@ export async function GET(req,res){
 
                 console.log(updatedImageData);
 
-
                 // await delay(10000);
             }
         }

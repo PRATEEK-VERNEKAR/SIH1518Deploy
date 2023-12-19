@@ -12,6 +12,8 @@ export default function UserRegistration() {
     password: '',
     deptpassword: '',
   });
+  const router = useRouter();
+
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
@@ -29,7 +31,6 @@ export default function UserRegistration() {
 
       if (response.data.success) {
         console.log('Registration successful!');
-        const router = useRouter();
         router.back();
         console.log(router) 
 
